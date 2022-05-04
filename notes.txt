@@ -1,0 +1,6 @@
+Git
+1. Para clonar o descargar una copia en nuestra maquina local debemos hacer:
+
+git clone https://github.com/ArielEzquer/Movie-Masters.git 
+
+Esto se debe hacer una sola vez. En caso que no encuentre la carpeta en mi maquina, o se elimino el proyecto de mi local, ejecuto este comando desde la consola de Git
