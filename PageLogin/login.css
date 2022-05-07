@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Indie+Flower&family=Square+Peg&display=swap');
+*{
+  background-color: #272121;
+  font-family: 'Chakra Petch', sans-serif;
+  font-size: 16px;
+  color: #FF0000;
+  padding: 0px;
+  margin:0px;
+}
+.input-group .input-group-text{
+  background-color: #272121;
+  color:#FF4D00;
+}
+.input-group .form-control{
+  color:grey;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 1px #FF0000;
+}
+.input-group .form-select{
+  color:grey;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 1px #FF0000;
+}
+#btnRegistro,.btn-ingresar,#btn{
+background-color: #FF4D00;
+color:black;
+box-shadow: 12px 12px 12px 1px #FF0000;
+}
+#btnCancelar,#btnCerrar{
+  background-color: #443737;
+  color:black;
+  box-shadow: 12px 12px 12px 1px #FF0000;
+}
+#btnRegistro:hover,.btn-ingresar:hover,#btn:hover{
+  background-color: #FF4D00;
+  color:black;
+  box-shadow: 12px 12px 12px 1px #FF0000;
+  animation-name: rotate-in-vertical;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+  }
+#btnCancelar:hover,#btnCerrar:hover{
+  background-color: #443737;
+  color:black;
+  box-shadow: 12px 12px 12px 1px #FF0000;
+  animation-name: rotate-in-vertical;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+ #loguinContraseña,#loguinEmail{
+  color:grey;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 1px #FF0000;
+}
+.registroEnlace,.olvidasteContraseña{
+  color:#FF0000;
+  text-decoration: none;
+}
+.registroEnlace:hover,.olvidasteContraseña:hover{
+  color:#FF4D00;
+  text-decoration: none;
+  animation-name: text-shadow-multicolor2;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+}
+.titulo{
+  animation-name: text-focus-in;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: 2seg;
+  animation-direction: normal;
+  animation-fill-mode: none;
+}
+@keyframes text-shadow-multicolor2 {
+  0%{
+    text-shadow: 0 0 black,0 0 red, 0 0 orange,0 0 yellow,0 0 green,0 0 skyblue,0 0 blue,0 0 white;
+    transform: translateX(0) translateY(0);
+  }
+  100%{
+    text-shadow: -1px -1px black,-3px -3px red,-5px -5px orange,-7px -7px yellow,-9px -9px green,-11px -11px skyblue,-13px -13px blue,-15px -15px white;
+    transform: translateX(8px) translateY(8px);
+  }
+}
+@keyframes rotate-in-vertical {
+  0%{
+    transform: rotateY(-360deg);
+    opacity: 0;
+  }
+  100%{
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+@keyframes text-focus-in {
+  0%{
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100%{
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+/* fondo */
+body{
+  background-color: #272121;
+ 
+}
+.fondo-movie{
+  display: flex;
+  justify-content: center;
+ 
+}
+.fondo-movie-letras{
+  font-size: 200px;
+  position: absolute;
+  margin: 50px auto;
+  color:white;
+  -webkit-animation: tracking-out-contract 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s infinite both;
+	        animation: tracking-out-contract 5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s infinite both;
+  text-shadow:
+		0 0 5px white,
+		0 0 10px white,
+		0 0 20px white,
+		0 0 40px #FF4D00,
+		0 0 80px #FF4D00,
+		0 0 90px #fa620b,
+		0 0 100px  #443737,
+		0 0 140px  #443737,
+		0 0 180px  #443737;
+}
+
+@-webkit-keyframes tracking-out-contract {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+}
+@keyframes tracking-out-contract {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+}
+/* clases para validar loguin */
+.red{
+color:red;
+font-size: 22px;
+}
+.green{
+color: green;
+font-size: 22px;
+}
