@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.main {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-background {
+  z-index: -3;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.main .title {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding-left: 10px;
+  height: 7%;
+  width: 100%;
+  background-color: #424245;
+  color: #fff;
+}
+
+.main .main-table {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  height: 95vh;
+  width: 100vw;  
+}
+
+.main-table input#search{
+    position: relative;
+    top:6%;
+    padding: 10px;
+    width: 40%;
+}
+
+.main-table .table-content {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    width: 70%;
+    height: 30%;
+    background-color: #fff;
+    /* border: 1px solid #424245; */
+    /* padding: 50px 4px 4px 4px; */
+    /* border-radius: 5px; */
+}
+.table-content .head,
+.table-content .cell {
+  width: 10%;
+  height: 30%;
+}
+.table-content .head {
+  background-color: #424245;
+  color: #fff;
+}
