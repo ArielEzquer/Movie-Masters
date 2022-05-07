@@ -10,9 +10,9 @@ const resultado1 = document.querySelector(".resultado1");
 btnRegistro.addEventListener("click",(e)=>{
   e.preventDefault();
  /* obtenerUsuario()  */
-  let error = validarCamposReg();
-  if(error[0]){
-    resultado1.innerHTML = error[1];
+  let errors = validarCamposReg();
+  if(errors){
+    resultado1.innerHTML = errors;
     resultado1.classList.add("red");
   }else{
     resultado1.innerHTML = "Solicitud correcta,Ahora ingresa y disfruta!";
@@ -27,25 +27,13 @@ const validarCamposReg = ()=>{
   const regExpEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3,4})+$/;
   //inicio validaciones
   if (regExpEmail.test(email.value) ) {
-     error[0]= true;
-     error[1] = "El email es invalido";
-     return error;
-   }else if(contraseña.value == " " ||contraseña.value.lenght < 4 ||  contraseña.value.lenght >20) {
-    error[0]= true;
-    error[1] = "La contraseña debe ser mayor a cuatro caracteres";
-    return error; 
+     error.push({error: true, msg:"El email es invalido"});
+   }else if(contraseña.value.trim() == "" ||contraseña.value.lenght < 4 ||  contraseña.value.lenght >20) {
+    error.push({error: true, msg:"La contraseña debe ser mayor a cuatro caracteres"});  
   } else if(apellido.value.lenght<3 || apellido.value.lenght> 40 ||nombre.value.lenght<3 || nombre.value.lenght > 40 ){
-    error[0]= true;
-    error[1] = "Corregir campos Apellido y Nombre";
-    return error;
+    error.push({error: true, msg:"Corregir campos Apellido y Nombre"}); 
   }
-   /* else if(retorno == true){
-    error[0]= true;;
-    error[1] = "El email  ya exite";
-    return error;
-  } */ 
-  error[0]= false;
-  return error;
+
 }
 function mayus(e) {
   e.value = e.value.toUpperCase();
