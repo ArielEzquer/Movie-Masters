@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;1,300;1,700&display=swap');
+:root{
+--colorFuente:#FA7D09;
+--botonPrimarios:#FF4301 ;
+--fondo:black;
+--fuente:'Lato', sans-serif;
+--sombra: #ff450185;
+--botonSecundario:#4A3F35; 
+--colorFuenteBtn:black;
+}
+
+*{
+  background-color: var(--fondo);
+  font-family: var(--fuente);
+  font-size: 16px;
+  color: var(--colorFuente);
+  padding: 0px;
+  margin:0px;
+}
+.input-group .input-group-text{
+  background-color: var(--fondo);
+  color:var(--colorFuente);
+  border: none;
+}
+.input-group .form-control{
+  color:white;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 1px var(--sombra);
+}
+.input-group:hover .form-control:hover{
+  color:var(--colorFuente);
+  background-color: var(--botonSecundario);
+  box-shadow: 2px 2px 2px 1px var(--sombra);
+}
+#btnRegistro{
+  background-color: var(--botonPrimarios);
+  color:var(--colorFuenteBtn);
+  font-weight: 700;
+  box-shadow: 12px 12px 12px 1px var(--sombra);
+}
+#btnCancelar{
+  background-color: var(--botonSecundario);
+  color:var(--colorFuenteBtn);
+  font-weight: 700;
+  box-shadow: 12px 12px 12px 1px var(--sombra);
+}
+#btnRegistro:hover{
+  background-color: var(--colorFuente);
+  color:var(--colorFuenteBtn);
+  font-weight: 700;
+  box-shadow: 12px 12px 12px 1px var(--sombra); 
+  }
+#btnCancelar:hover{
+  background-color: var(--colorFuente);
+  color:var(--colorFuenteBtn);
+  box-shadow: 12px 12px 12px 1px var(--sombra);
+}
+.enlaceCancelar{
+  background-color: transparent;
+  text-decoration: none;
+  color:var(--colorFuenteBtn)
+}
+.titulo{
+  color: var(--colorFuente);
+  margin: 22px;
+}
+
+/* clases para validar loguin */
+.red{
+color:red;
+font-size: 22px;
+}
+.green{
+color: green;
+font-size: 22px;
+}
