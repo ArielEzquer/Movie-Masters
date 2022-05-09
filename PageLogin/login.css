@@ -2,11 +2,11 @@
 :root{
 --colorFuente:#FA7D09;
 --botonPrimarios:#FF4301 ;
---fondo:black;
+--fondo: black;
 --fuente:'Lato', sans-serif;
 --sombra: #ff450185;
 --botonSecundario:#4A3F35; 
---colorFuenteBtn:black;
+--colorFuenteBtn:#fff;
 
 }
 
@@ -45,10 +45,14 @@ box-shadow: 12px 12px 12px 1px var(--sombra);
   box-shadow: 12px 12px 12px 1px var(--sombra);
  
 }
- #loguinContraseña,#loguinEmail,#loginEmailR,#loguinContraseñaR{
-  color:grey;
+ #loguinContraseña,#loguinEmail,
+  .containerReset #loginEmailR, .containerReset #loguinContraseñaR{
   background-color: transparent;
   box-shadow: 2px 2px 2px 1px var(--sombra);
+}
+.containerReset #loginEmailR:hover, .containerReset #loguinContraseñaR:hover, #loguinEmail:hover, #loguinContraseña:hover {
+color: var(--colorFuente);
+background-color: var(--botonSecundario);
 }
 .registroEnlace,.olvidasteContraseña, .cambiar{
   color:var(--colorFuente);
