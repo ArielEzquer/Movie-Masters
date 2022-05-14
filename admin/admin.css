@@ -9,7 +9,7 @@
 .main {
   display: flex;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -25,12 +25,12 @@
 
 .main .title {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 10px;
+  padding: 0 10px 0 10px;
   height: 7%;
   width: 100%;
-  background-color: #424245;
+  background-color: #000;
   color: #fff;
 }
 
@@ -40,26 +40,26 @@
   justify-items: center;
   align-items: center;
   height: 95vh;
-  width: 100vw;  
+  width: 100vw;
 }
 
-.main-table input#search{
-    position: relative;
-    top:6%;
-    padding: 10px;
-    width: 40%;
+.main-table input#search {
+  position: relative;
+  top: 6%;
+  padding: 10px;
+  width: 40%;
 }
 
 .main-table .table-content {
-    /* display: flex;
+  /* display: flex;
     justify-content: center;
     align-items: center; */
-    width: 70%;
-    height: 30%;
-    background-color: #fff;
-    /* border: 1px solid #424245; */
-    /* padding: 50px 4px 4px 4px; */
-    /* border-radius: 5px; */
+  width: 70%;
+  height: 30%;
+  background-color: #fff;
+  /* border: 1px solid #424245; */
+  /* padding: 50px 4px 4px 4px; */
+  /* border-radius: 5px; */
 }
 .table-content .head,
 .table-content .cell {
@@ -69,4 +69,36 @@
 .table-content .head {
   background-color: #424245;
   color: #fff;
+}
+
+/* From uiverse.io */
+.btn-save {
+  padding: 0.2em 1em;
+  /* font-size: 12px; */
+  /* text-transform: uppercase; */
+  /* letter-spacing: 2.5px; */
+  /* font-weight: 500;s */
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-save:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.btn-save:active {
+  transform: translateY(-1px);
+}
+
+.btn-save-hide {
+  display: none;
 }
