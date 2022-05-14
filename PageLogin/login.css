@@ -18,9 +18,7 @@
   padding: 0px;
   margin:0px;
 }
-
-
-.btn-ingresar,#btn,#cambiarContraseña{
+.btn-ingresar,#btn{
 background-color: var(--botonPrimarios);
 color:var(--colorFuenteBtn);
 font-weight: 700;
@@ -33,7 +31,7 @@ box-shadow: 12px 12px 12px 1px var(--sombra);
   font-weight: 700;
   box-shadow: 12px 12px 12px 1px var(--sombra);
 }
-.btn-ingresar:hover,#btn:hover,#cambiarContraseña:hover{
+.btn-ingresar:hover,#btn:hover{
   background-color: var(--colorFuente);
   color:var(--colorFuenteBtn);
   font-weight: 700;
@@ -45,21 +43,22 @@ box-shadow: 12px 12px 12px 1px var(--sombra);
   box-shadow: 12px 12px 12px 1px var(--sombra);
  
 }
- #loguinContraseña,#loguinEmail,
-  .containerReset #loginEmailR, .containerReset #loguinContraseñaR{
-  background-color: transparent;
+ #loguinContraseña,#loguinEmail{
+  background-color:transparent;
   box-shadow: 2px 2px 2px 1px var(--sombra);
+  color: var(--colorFuenteBtn);
+  font-weight: bold;
 }
-.containerReset #loginEmailR:hover, .containerReset #loguinContraseñaR:hover, #loguinEmail:hover, #loguinContraseña:hover {
+ #loguinEmail:hover, #loguinContraseña:hover {
 color: var(--colorFuente);
 background-color: var(--botonSecundario);
 }
-.registroEnlace,.olvidasteContraseña, .cambiar{
+.registroEnlace,.olvidasteContraseña{
   color:var(--colorFuente);
   text-decoration: none;
   background-color: transparent;
 }
-.registroEnlace:hover,.olvidasteContraseña:hover, .cambiar:hover{
+.registroEnlace:hover,.olvidasteContraseña:hover{
   color:var(--botonPrimarios);
   text-decoration: none;
   background-color: var(--botonSecundario);
