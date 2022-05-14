@@ -6,25 +6,20 @@ const contraseña = document.getElementById("loguinContraseña");
 
 
 const obtenerUsuario = ()=>{
+
+  const userRelocation = {
+    user: "./home/home.html",
+    admin: "./admin/admin.html"
+  }
+
   fetch('http://localhost:3000/users')
   .then(response=>response.json())
   .then(response => {
-     for (let i = 0; i < response.length; i++) {
-       const arrayRecorrido= response[i];
-       console.log(arrayRecorrido);
-      if(arrayRecorrido.email == email.value && arrayRecorrido.contraseña == contraseña.value
-        && arrayRecorrido.profile == "user"){
-        window.location = "home.html";
-        return true;
-      }else if(arrayRecorrido.email == email.value && arrayRecorrido.contraseña == contraseña.value
-        && arrayRecorrido.profile == "admin" ){
-          window.location = "administracion.html";
-          return true;
-        }
-      else{ 
-        return false;
-      }  
-     } 
+    console.log(response)
+    const user =  response.find( u => u.email === email.value  && u.password === contraseña.value )
+    if(user){
+      window.location = userRelocation[user.profile];
+    }
   })
 }
 //iniciar secion

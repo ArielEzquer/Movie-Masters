@@ -1,40 +1,41 @@
 //recuperacion contraseña
 const emailR = document.getElementById("loguinEmailR");
-const contrseñaR = document.getElementById("loguinContraseñaR");
+const newPassword = document.getElementById("loguinContraseñaR");
 const botonResetContraseña = document.getElementById("cambiarContraseña");
 //fech
-function obtenerRecup(){
-  fetch('http://localhost:3000/users')
-  .then(response=>response.json())
-  .then(response => {
-     for (let i = 0; i < response.length; i++) {
-       const arrayRecorrido= response[i];
-       console.log(arrayRecorrido);
-      if(arrayRecorrido.email == emailR.value ){
-       modificarContraseña();
-        return true;
-      }else{ 
-        return false;
-      }  
-     } 
-  })
-}
-function modificarContraseña(){
-  fetch('http://localhost:3000/users',{
-    method:'PATH',
-    body: JSON.stringify({
-      "password":contraseñaR.value,
-      "profile":"user"}),
-      Headers:{
-        'content-type': 'aplication/jason; charset=UTF8'
+function obtenerRecup() {
+  fetch("http://localhost:3000/users")
+    .then((response) => response.json())
+    .then((users) => {
+      const user = users.find((u) => u.email === emailR.value);
+      if (user) {
+        modificarContraseña(user.id);
+      } else {
+        alert(`No existe un usuario registrado con el mail ${emailR.value}`);
       }
-    })
-    .then(response=>response.jason())
-    .then(response=>console.log(response))
+    });
+}
+function modificarContraseña(id) {
+  fetch(`http://localhost:3000/users/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      id: id,
+      password: newPassword.value,
+      profile: "user",
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8'
     }
-    //recuperacion contraseña
-botonResetContraseña.addEventListener("click",(e)=>{
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      console.log(response);
+      alert("Contraseña modificado con exito");
+      window.location = "./login.html"
+    });
+}
+//recuperacion contraseña
+botonResetContraseña.addEventListener("click", (e) => {
   e.preventDefault();
-   obtenerRecup();
-  
+  obtenerRecup();
 });
