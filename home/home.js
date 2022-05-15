@@ -81,10 +81,10 @@ fetch("http://localhost:3000/movies")
 		<a href="#"><img src="${movie.Poster}" alt=""></a>
 	</div>`;
     });
+
     //Accion
-	// ['Action', 'Sci-Fi']
-	let accion = movies.filter((a) => a.includes(['Action', 'Sci-Fi']))
-	accion.forEach((a) => {
+    let accion = movies.filter((a) => a.includes(['Action', 'Sci-Fi']))
+    accion.forEach((a) => {
 		carouselAccion.innerHTML += `<div class="pelicula">
 		  <a href="#"><img src="${a.Poster}" alt=""></a>
 		</div>`;
@@ -96,12 +96,12 @@ fetch("http://localhost:3000/movies")
     );
     terror.forEach((t) => {
       carouselTerror.innerHTML += `<div class="pelicula">
-	<a href="#"><img src="${s.Poster}" alt=""></a>
+	<a href="#"><img src="${t.Poster}" alt=""></a>
 	</div>`;
     });
+
     //Series
     let series = movies.filter((movie) => movie.Type === "series");
-
     series.forEach((s) => {
       carouselSeries.innerHTML += `<div class="pelicula">
 	<a href="#"><img src="${s.Poster}" alt=""></a>
