@@ -1,37 +1,71 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+:root {
+  --naranja: #ff4d00;
+  --fondo: #000;
+}
+
 * {
   padding: 0%;
   margin: 0%;
   box-sizing: border-box;
   font-family: "Lato", sans-serif;
 }
-
-.main {
-  display: flex;
-  width: 100vw;
-  height: auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.contenedor {
+  width: 90%;
+  margin: auto;
 }
 
-.main-background {
-  z-index: -3;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.main .title {
+header .contenedor {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px 0 10px;
-  height: 7%;
-  width: 100%;
   background-color: #000;
+  width: 100vw;
+  margin: 0;
+  padding: 1em;
+}
+header .logotipo {
   color: #fff;
+}
+header .logotipo img {
+  width: 170px;
+  height: auto;
+}
+
+header nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+header nav a:hover,
+header nav a.activo {
+  color: #fff;
+}
+
+.title-panel{
+  color: #fff;
+}
+
+.icon-box{
+  background-color: #ff4d00;
+  padding: 2px;
+  border-radius: 5px;
+  border-color: #fff;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgb(255, 77, 0);
+  background: linear-gradient(
+    333deg,
+    rgba(255, 77, 0, 1) 0%,
+    rgba(3, 1, 0, 1) 39%
+  );
 }
 
 .main .main-table {
@@ -43,41 +77,14 @@
   width: 100vw;
 }
 
-.main-table input#search {
-  position: relative;
-  top: 6%;
-  padding: 10px;
-  width: 40%;
-}
-
 .main-table .table-content {
-  /* display: flex;
-    justify-content: center;
-    align-items: center; */
   width: 70%;
   height: 30%;
   background-color: #fff;
-  /* border: 1px solid #424245; */
-  /* padding: 50px 4px 4px 4px; */
-  /* border-radius: 5px; */
-}
-.table-content .head,
-.table-content .cell {
-  width: 10%;
-  height: 30%;
-}
-.table-content .head {
-  background-color: #424245;
-  color: #fff;
 }
 
-/* From uiverse.io */
 .btn-save {
   padding: 0.2em 1em;
-  /* font-size: 12px; */
-  /* text-transform: uppercase; */
-  /* letter-spacing: 2.5px; */
-  /* font-weight: 500;s */
   color: #000;
   background-color: #fff;
   border: none;
@@ -90,7 +97,7 @@
 
 .btn-save:hover {
   background-color: #23c483;
-  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  box-shadow: 0px 2px 2px rgba(46, 229, 157, 0.4);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -101,4 +108,16 @@
 
 .btn-save-hide {
   display: none;
+}
+
+@media screen and (max-width: 800px) {
+  header .logotipo {
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+
+  header .contenedor {
+    flex-direction: column;
+    text-align: center;
+  }
 }
