@@ -4,3 +4,9 @@ Git
 git clone https://github.com/ArielEzquer/Movie-Masters.git 
 
 Esto se debe hacer una sola vez. En caso que no encuentre la carpeta en mi maquina, o se elimino el proyecto de mi local, ejecuto este comando desde la consola de Git
+
+Recursos de imagenes:
+Pagina Administrador
+https://unsplash.com/es/fotos/CiUR8zISX60
+https://unsplash.com/es/fotos/PpYOQgsZDM4
+https://unsplash.com/es/fotos/MDUI8XIq6Mc
