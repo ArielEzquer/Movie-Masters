@@ -83,7 +83,7 @@ fetch("http://localhost:3000/movies")
     });
 
     //Accion
-    let accion = movies.filter((a) => a.includes(['Action', 'Sci-Fi']))
+    let accion = movies.filter((a) => a.Genre.includes('Action'))
     accion.forEach((a) => {
 		carouselAccion.innerHTML += `<div class="pelicula">
 		  <a href="#"><img src="${a.Poster}" alt=""></a>
