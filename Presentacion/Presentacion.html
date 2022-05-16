@@ -4,53 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina Detalle</title>
-    <link rel="stylesheet" href="./detalle.css">
+    <title>Movie-Masters</title>
+	<link rel="icon" href="../recursos/img/MM-Logo.svg" type="image/png">
+    <link rel="stylesheet" href="./Presentacion.css">
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar -->
 	<header>
 		<div class="contenedor">
 			<h2 class="logotipo"><a href="../home/home.html"><img src="../recursos/img/Movie-Masters-Logo.svg" alt=""></a></h2>
 			<nav>
-				<a href="../home/home.html">Inicio</a>
-				<a href="../paginaError/error.html">Cerrar sesión</a>
+				<a href="./Presentacion.html" class="activo">Login</a>
+				<a href="../Registro/Registro.html">Registro</a>
 			</nav>
 		</div>
 	</header>
-
-    <main>
-		<div class="pelicula-principal">
-			<div class="contenedor">
-				<h3 id="titulo-destacada" class="titulo">Interestellar</h3>
-				</p>
-			</div>
-		</div>
-
-        <div class="tituloSeccion">
-            <h3>Descripcion</h3>
-            <p id="desc-par">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Obcaecati facilis itaque optio ut amet. Dolore, velit!
-                Accusamus beatae nobis dolores aliquam, aspernatur est
-                non expedita amet voluptas consectetur qui obcaecati.</p>
-        </div>
-        <div class="tituloSeccion">
-            <h3>Trailer</h3>
-        </div>
-        <div class="tituloSeccion">
-            <h3>Imagenes</h3>
-			<section class="img-content">
-				<img src="" alt="">
-			</section>
-        </div>
-
-    <!-- Footer -->
-
+	<main>
+        <section class="presentation">
+            <img class="img-pres" src="../recursos/img/presentacionimg.jpeg" alt="presentacion img">
+            <div class="login-container">
+                <input class="input-login" type="text" id="email-login" placeholder="Email">
+                <input class="input-login" type="password" id="password-login" placeholder="Password">
+                <button id="iniciar-login" class="btn-login input-login">Iniciar Sesión</button>
+            </div>
+        </section>
+	</main>
 	<footer>
-		<hr>
 		<div class="contacto">
-			<a href="">Contacto</a>
-			<a href="">Acerca de Nosotros</a>
+			<span>Contacto</span>
+			<span>Acerca de Nosotros</span>
 		</div>
 		<hr>
 		<div>
@@ -66,7 +48,8 @@
 			<small>Copyright © 2022 Movie-Masters. Todos los derechos reservados.</small>
 		</div>
 	</footer>
-
-    <script src="../Detalle/detalle.js"></script>
+	
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="./Presentacion.js"></script>
 </body>
 </html>

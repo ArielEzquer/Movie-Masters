@@ -129,11 +129,6 @@ const getAllData = async (endpoint) => {
       ${!item.Available ? "disabled" : " "}
       class="fav-movie-radio" name="fav-movie-group" id="radio-${item.id}"></td>
       <td>
-      <button type="button" id="edit-${
-        item.id
-      }" class="icon-box btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <img id="editImg-${
-        item.id
-      }" src="../recursos/iconos/edit-alt.svg" alt="edit"></button>
       ${
         !item.Delete
           ? `<button type="button" id="delete-${item.id}" class="icon-box btn-delete"> <img id="deleteImg-${item.id}" src="../recursos/iconos/trash.svg" alt="eliminar"></button>`
