@@ -5,13 +5,33 @@ let carouselTendencias = document.querySelector("#tendencias .carousel");
 let carouselAccion = document.querySelector("#accion .carousel");
 let carouselSeries = document.querySelector("#series .carousel");
 let carouselTerror = document.querySelector("#terror .carousel");
+let btnDetallePrincipal = document.querySelector(
+  ".pelicula-principal .boton.go-details"
+);
+
+const getRandomNumber = (limit) => {
+  let rand = Number(Math.random() * limit);
+  return Math.ceil(rand);
+};
+
+const getRandomNumbers = ({ q = 10, limit }) => {
+  let randoms = [];
+  for (let i = 0; i < q; i++) {
+    randoms.push(getRandomNumber(limit));
+  }
+  return randoms;
+};
+
+let btnDetails = undefined;
 
 const fila = document.querySelector(".contenedor-carousel");
 const peliculas = document.querySelectorAll(".pelicula");
 
 const flechaIzquierda = document.getElementById("flecha-izquierda");
 const flechaDerecha = document.getElementById("flecha-derecha");
-
+const getIdNumber = (idString) => {
+  return idString.split("-")[1];
+};
 // Event Listener para la flecha derecha.
 flechaDerecha.addEventListener("click", () => {
   fila.scrollLeft += fila.offsetWidth;
@@ -71,40 +91,60 @@ fetch("http://localhost:3000/movies")
   .then((response) => response.json())
   .then((movies) => {
     let peliculaDestacada = movies.find((x) => x.Principal);
+    btnDetallePrincipal.id = `btnDet-${peliculaDestacada.id}`;
     tituloDestacada.innerText = peliculaDestacada.Title;
     descripcionDestacada.innerText = peliculaDestacada.Plot;
     imgDestacada.style.background = ` linear-gradient(rgba(0, 0, 0, .50) 0%, rgba(0,0,0,.50) 100%), url(${peliculaDestacada.Images[0]})`;
 
     // Tendencias
+    // console.log(idRandoms);
+
     movies.forEach((movie) => {
-      carouselTendencias.innerHTML += `<div class="pelicula">
-		<a href="#"><img src="${movie.Poster}" alt=""></a>
+      carouselTendencias.innerHTML += `<div id="content-${movie.id}" class="pelicula go-details">
+		<a href="#"><img src="${movie.Poster}" alt="poster-${movie.id}"></a>
 	</div>`;
     });
 
     //Accion
-    let accion = movies.filter((a) => a.includes(['Action', 'Sci-Fi']))
+    let accion = movies.filter((a) => a.Genre.includes("Action"));
     accion.forEach((a) => {
-		carouselAccion.innerHTML += `<div class="pelicula">
-		  <a href="#"><img src="${a.Poster}" alt=""></a>
+      carouselAccion.innerHTML += `<div class="pelicula go-details">
+		  <a href="#"><img src="${a.Poster}" alt="poster-${a.id}"></a>
 		</div>`;
-	})
-	
+    });
+
     // Terror
-    let terror = movies.filter((m) =>
-      m.Genre.includes(["Crime", "Drama", "Thriller", "Terror"])
-    );
+    let terror = movies.filter((m) => m.Genre.includes("Terror"));
     terror.forEach((t) => {
-      carouselTerror.innerHTML += `<div class="pelicula">
-	<a href="#"><img src="${t.Poster}" alt=""></a>
+      carouselTerror.innerHTML += `<div class="pelicula go-details">
+	<a href="#"><img src="${t.Poster}" alt="poster-${t.id}"></a>
 	</div>`;
     });
 
     //Series
     let series = movies.filter((movie) => movie.Type === "series");
     series.forEach((s) => {
-      carouselSeries.innerHTML += `<div class="pelicula">
-	<a href="#"><img src="${s.Poster}" alt=""></a>
+      carouselSeries.innerHTML += `<div class="pelicula go-details">
+	<a href="#"><img src="${s.Poster}" alt="poster-${s.id}"></a>
 	</div>`;
     });
   });
+
+fetch("http://localhost:3000/movies")
+  .then((res) => res.json())
+  .then((contents) => {
+    btnDetails = document.querySelectorAll(".pelicula.go-details");
+    btnDetails.forEach((details) => {
+      details.addEventListener("click", (e) => {
+        let getContent = getIdNumber(e.target.alt);
+        // console.log(e);
+        window.location = `../Detalle/detalle.html?id=${getContent}`;
+      });
+    });
+  })
+  .catch((e) => alert(`Ha ocurrido un error: ${e}`));
+
+btnDetallePrincipal.addEventListener("click", (e) => {
+  let getContent = getIdNumber(e.target.id);
+  window.location = `../Detalle/detalle.html?id=${getContent}`;
+});

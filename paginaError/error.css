@@ -1,8 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
 
 body {
   width: 100vw;
-  height: 100vh;
   box-sizing: border-box;
   background-color: black;
   font-family: "Lato", sans-serif;
@@ -11,15 +10,53 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
 .contenedor {
   display: flex;
-  position: relative;
-  top: -20%;
-  left: -5%;
-  /*margin-top: 20vh;*/
   justify-content: center;
-  width: 20vw;
+  align-content: center;
+  flex-direction: column;
+  width: 100vw;
+  margin: auto;
+}
+header .contenedor-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  width: 95%;
+  padding: 1em;
+}
+
+header .logotipo img {
+  width: 170px;
+  height: auto;
+}
+
+header nav a {
+  color: #aaa;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+button a {
+  color:#aaa;
+}
+
+button a:hover {
+  color:#000
+}
+
+header nav a:hover,
+header nav a.activo {
+  color: #fff;
+}
+
+.contenedor-errormsj {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
   height: 20vw;
 }
 
@@ -27,8 +64,10 @@ body {
   font-size: xx-large;
   color: #fa7d09;
   text-align: center;
-  margin-top: -20%;
-  display:inline-block;
+  position: relative;
+  /* left: -50px; */
+  /* margin-top: -20%; */
+  display: inline-block;
   width: 80%;
 }
 
@@ -39,14 +78,14 @@ body {
 
   font-size: large;
   background-color: transparent;
-  color: #fa7d09 ;
+  color: #fa7d09;
   border: 3px solid #fa7d09;
   border-radius: 30px;
 }
 .botonAtras:hover {
   font-weight: bold;
-  background-color: #fa7d09 ;
-  color: black ;
+  background-color: #fa7d09;
+  color: black;
   text-decoration: none;
 }
 
@@ -57,7 +96,7 @@ body {
 
   position: relative;
   display: flex;
-
+  right: 3%;
   align-items: center;
   justify-content: center;
   width: var(--uib-size);
