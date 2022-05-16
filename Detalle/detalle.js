@@ -6,6 +6,10 @@ let contentImgs = document.querySelector(".img-content");
 const params = new URLSearchParams(window.location.search);
 const contentToFind = params.get("id");
 
+if(!contentToFind){
+  window.location = `../paginaError/error.html`;
+}
+
 fetch(`http://localhost:3000/movies/${contentToFind}`)
   .then((response) => response.json())
   .then((content) => {

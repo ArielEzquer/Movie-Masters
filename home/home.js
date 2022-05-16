@@ -108,24 +108,24 @@ fetch("http://localhost:3000/movies")
     //Accion
     let accion = movies.filter((a) => a.Genre.includes("Action"));
     accion.forEach((a) => {
-      carouselAccion.innerHTML += `<div class="pelicula">
-		  <a href="#"><img src="${a.Poster}" alt=""></a>
+      carouselAccion.innerHTML += `<div class="pelicula go-details">
+		  <a href="#"><img src="${a.Poster}" alt="poster-${a.id}"></a>
 		</div>`;
     });
 
     // Terror
     let terror = movies.filter((m) => m.Genre.includes("Terror"));
     terror.forEach((t) => {
-      carouselTerror.innerHTML += `<div class="pelicula">
-	<a href="#"><img src="${t.Poster}" alt=""></a>
+      carouselTerror.innerHTML += `<div class="pelicula go-details">
+	<a href="#"><img src="${t.Poster}" alt="poster-${t.id}"></a>
 	</div>`;
     });
 
     //Series
     let series = movies.filter((movie) => movie.Type === "series");
     series.forEach((s) => {
-      carouselSeries.innerHTML += `<div class="pelicula">
-	<a href="#"><img src="${s.Poster}" alt=""></a>
+      carouselSeries.innerHTML += `<div class="pelicula go-details">
+	<a href="#"><img src="${s.Poster}" alt="poster-${s.id}"></a>
 	</div>`;
     });
   });
