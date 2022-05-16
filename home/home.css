@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 :root {
 	--naranja: #FF4D00;
@@ -30,6 +30,7 @@ header .contenedor {
 	width: 100vw;
 	margin: 0;
 	padding: 1em;
+	position: fixed;
 }
 
 header .logotipo img{
@@ -174,7 +175,7 @@ header nav a.activo {
 	width: 50px;
 	color: #fff;
 	cursor: pointer;
-	z-index: 500;
+	z-index: 2;
 	transition: .2s ease all;
 }
 
@@ -218,6 +219,15 @@ header nav a.activo {
 .peliculas-recomendadas .contenedor-carousel .carousel .pelicula img {
 	width: 100%;
 	vertical-align: top;
+}
+
+.contacto{
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: center;
+	color: #FFFFFF;
+	height: 100px;
 }
 
 .redes-sociales{
