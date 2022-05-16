@@ -1,4 +1,6 @@
 let checksMovieFav = document.querySelectorAll(".fav-movie-checked");
+let btnsDeleteMovie = document.querySelectorAll(".btn-delete");
+let btnsRestoreMovie = document.querySelectorAll(".btn-restore");
 let btnSave = document.querySelector("#btn-save");
 let dbInitialStatus = [];
 let dbInfoToChange = [];
@@ -23,6 +25,81 @@ const eventChangeCheck = (e, previousFavId) => {
   }
 };
 
+const deleteMovieDB = (id) => {
+  let deleteItem = dbInitialStatus.find((item) => item.idMovie == id);
+  if (deleteItem.fav) {
+    let indexDelete = dbInitialStatus.findIndex((item) => item.idMovie == id);
+    let newPrincipal = dbInitialStatus[indexDelete - 1]
+      ? dbInitialStatus[indexDelete - 1]
+      : dbInitialStatus[indexDelete + 1];
+    Promise.all([
+      fetch(`http://localhost:3000/movies/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          Principal: false,
+          Delete: true,
+          Available: false,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }),
+      fetch(`http://localhost:3000/movies/${newPrincipal.idMovie}`, {
+        method: "PATCH",
+        body: JSON.stringify({
+          Principal: true,
+          Available: true,
+          Delete: false,
+        }),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      }),
+    ])
+      .then((res) => {
+        alert("Eliminacion exitosa");
+      })
+      .catch((e) => {
+        console.log(`Ha ocurrido un error: ${e}`);
+      });
+  } else {
+    fetch(`http://localhost:3000/movies/${id}`, {
+      method: "PATCH",
+      body: JSON.stringify({
+        Delete: true,
+        Available: false,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((res) => {
+        alert("Eliminacion exitosa");
+      })
+      .catch((e) => {
+        console.log(`Ha ocurrido un error: ${e}`);
+      });
+  }
+};
+const restoreMovieDB = (id) => {
+  fetch(`http://localhost:3000/movies/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify({
+      Delete: false,
+      Available: true,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((res) => {
+      alert("Restauracion exitosa");
+    })
+    .catch((e) => {
+      console.log(`Ha ocurrido un error: ${e}`);
+    });
+};
+
 const getAllData = async (endpoint) => {
   try {
     let response = await fetch(`http://localhost:3000/${endpoint}`);
@@ -30,6 +107,7 @@ const getAllData = async (endpoint) => {
     items.forEach((item) => {
       dbInitialStatus.push({
         id: `radio-${item.id}`,
+        idMovie: item.id,
         fav: item.Principal,
         Title: item.Title,
         Year: item.Year,
@@ -50,7 +128,18 @@ const getAllData = async (endpoint) => {
       <td><input type="radio" ${item.Principal ? `checked` : " "} 
       ${!item.Available ? "disabled" : " "}
       class="fav-movie-radio" name="fav-movie-group" id="radio-${item.id}"></td>
-      <td><button type="button" class="icon-box" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <img src="../recursos/iconos/edit-alt.svg" alt="edit"></button></td>
+      <td>
+      <button type="button" id="edit-${
+        item.id
+      }" class="icon-box btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdrop"> <img id="editImg-${
+        item.id
+      }" src="../recursos/iconos/edit-alt.svg" alt="edit"></button>
+      ${
+        !item.Delete
+          ? `<button type="button" id="delete-${item.id}" class="icon-box btn-delete"> <img id="deleteImg-${item.id}" src="../recursos/iconos/trash.svg" alt="eliminar"></button>`
+          : `<button type="button" id="delete-${item.id}" class="icon-box btn-restore"> <img id="restoreImg-${item.id}" src="../recursos/iconos/recycle.svg" alt="restaurar"></button>`
+      }
+      </td>
       </tr>`;
     });
     let { id: previousFavId } = dbInitialStatus.find((item) => item.fav);
@@ -61,8 +150,26 @@ const getAllData = async (endpoint) => {
         eventChangeCheck(e, previousFavId)
       );
     });
+    btnsDeleteMovie = document.querySelectorAll(".btn-delete");
+
+    btnsDeleteMovie.forEach((btnDeleteMovie) => {
+      btnDeleteMovie.addEventListener("click", (e) => {
+        let idDelete = getIdNumber(e.target.id);
+        deleteMovieDB(idDelete);
+        window.location.reload();
+      });
+    });
+
+    btnsRestoreMovie = document.querySelectorAll(".btn-restore");
+    btnsRestoreMovie.forEach((btnRestoreMovie) => {
+      btnRestoreMovie.addEventListener("click", (e) => {
+        let idDelete = getIdNumber(e.target.id);
+        restoreMovieDB(idDelete);
+        window.location.reload();
+      });
+    });
   } catch (error) {
-    alert(`Ha ocurrido un error: ${e}`);
+    alert(`Ha ocurrido un error: ${error}`);
   }
 };
 
